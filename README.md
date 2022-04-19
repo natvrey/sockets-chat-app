@@ -10,9 +10,9 @@ https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 <img src= "https://user-images.githubusercontent.com/92003973/164072356-2f037e46-72ea-44bb-b69f-8cb6d8b37a02.jpeg" width="333" height="333"/>
 
 
-Once you've unzipped the folder:
+# Once you've unzipped the folder (& node has aleady been installed):
 
-## 2. Once node is installed, open an instance of your command line/ terminal
+## 2. Open an instance of your command line/ terminal
 
 ## 3. Navigate into the root project folder, then cd into the "sockets-chat-app" folder
 
