@@ -1,15 +1,28 @@
-# chat-example
+# chat-app
 
-This is the source code for a very simple chat example used for
-the [Getting Started](http://socket.io/get-started/chat/) guide
-of the Socket.IO website.
+This is a chat app that requires the use of:
+Node.js
+Express.js
+Socket.io
 
-Please refer to it to learn how to run this application.
+## 1a. Ensure you install node:
 
-You can also spin up a free Heroku dyno to test it out:
+https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/socketio/chat-example)
+## 1b. Download a zipped copy of the code:
 
-Or run it on [Repl.it](https://repl.it/):
+Once you've unzipped the folder:
 
-[![Run on Repl.it](https://repl.it/badge/github/socketio/chat-example)](https://repl.it/github/socketio/chat-example)
+## 2. Once node is installed, open an instance of your command line/ terminal
+
+## 3. Navigate into the root project folder, then cd into the "sockets-chat-app" folder
+
+## 4. Run the command: npm i
+
+-This will ensure all needed dependencies get installed so that the app will work.
+
+## 5. Next, run the command: npm start
+
+## 6. Next, open two windows in a browser of your choice & type http://localhost:3000 in both windows' address bars.
+
+## 7. Send messages back and forth!
