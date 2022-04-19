@@ -1,15 +1,14 @@
 # chat-app
 
-This is a chat app that requires the use of:
-Node.js
-Express.js
-Socket.io
+This is a chat app that requires the use of: Node.js, Express.js & Socket.io.
 
 ## 1a. Ensure you install node:
 
 https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 
 ## 1b. Download a zipped copy of the code:
+<img src= "https://user-images.githubusercontent.com/92003973/164072356-2f037e46-72ea-44bb-b69f-8cb6d8b37a02.jpeg" width="333" height="333"/>
+
 
 Once you've unzipped the folder:
 
