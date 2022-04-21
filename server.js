@@ -7,24 +7,33 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-let users = [];
+const EventEmitter = require("events");
+
+class MyEmitter extends EventEmitter {}
+
+const myEmitter = new MyEmitter();
+// increase the limit
+myEmitter.setMaxListeners(20);
+
+users = [];
+
 io.on("connection", function (socket) {
+  users.push(socket.id);
   console.log("A user connected");
-  // io.on("connection", function (socket) {
-  socket.on("disconnect", () => {
-    console.log("user disconnected");
-  });
-  users.push();
+  console.log(users.length + " client(s) connected!");
   io.sockets.emit("broadcast", {
-    description: users + " client(s) connected!",
+    description: users.length + " clients connected!",
   });
-  socket.on("disconnect", function () {
-    users.pop();
+
+  socket.on("disconnect", () => {
+    users.pop(socket.id);
+    console.log("user disconnected");
+    console.log("now only" + users.length + " client(s) connected!");
+
     io.sockets.emit("broadcast", {
-      description: "now only" + users + " client(s) connected!",
+      description: "now only" + users.length + " clients connected!",
     });
   });
-  // })
 
   socket.on("setUsername", function (data) {
     console.log(data);
@@ -34,7 +43,7 @@ io.on("connection", function (socket) {
         data + " username is taken! Try some other username."
       );
     } else {
-      users.push(data);
+      // users.push(data);
       socket.emit("userSet", { username: data });
     }
   });
