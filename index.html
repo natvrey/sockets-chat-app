@@ -43,7 +43,7 @@
     });
     socket.on('userSet', function(data){
        user = data.username;
-       document.body.innerHTML = '<input type="text" id="message">\
+       document.body.innerHTML = '<h1> Welcome ' + user +'</h1>\<input type="text" id="message">\
        <button type="button" name="button" onclick="sendMessage()">Send</button>\
        <div id="message-container"></div>';
     });
