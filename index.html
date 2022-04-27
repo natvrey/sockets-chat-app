@@ -23,13 +23,11 @@
       socket.on("userSet", function (data) {
         user = data.username;
         document.body.innerHTML =
-          "<h1> Welcome " +
-          user +
-          '</h1>\<input type="text" placeholder="Type your message here" id="message">\
-       <button id="msgBtn" type="button" name="button" onclick="sendMessage()">Send</button>\
+          "<h1 class='welcome'> Welcome " +
+          user +    
+        '</h1>\<section class="msg-container"><textarea rows="2" cols="20" wrap="hard" type="text" placeholder="Type your message here" id="message"></textarea>\
+       <button id="msgBtn" type="button" name="button" onclick="sendMessage()">Send</button></section>\
        <div id="message-container"></div>';
-
-       
       });
 
       function sendMessage() {
@@ -41,12 +39,13 @@
       socket.on("newmsg", function (data) {
         if (user) {
           document.getElementById("message-container").innerHTML +=
-            "<div><b>" + data.user + "</b>: " + data.message + "</div>";
+            "<div class='msgs'><b>" + data.user + "</b>: " + data.message + "</div>";
         }
       });
 
       socket.on("broadcast", function (data) {
         const para = document.createElement("p");
+        para.classList.add("connections")
         para.innerText = data.description;
         document.body.appendChild(para);
       });
