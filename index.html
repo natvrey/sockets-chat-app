@@ -48,6 +48,7 @@
         para.innerText = data.description;
         document.body.appendChild(para);
       });
+
     </script>
     <body>
     <div id="error-container"></div>
@@ -58,11 +59,18 @@
       value=""
       placeholder="Enter your username!"
       required
-     
-
     />
-    <button type="button" name="button" onclick="setUsername()">
+    <button id="btn" type="button" name="button" onclick="setUsername()">
       Start a chat!
     </button>
+    <script>      
+    
+    var input = document.getElementById("name");
+      input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("btn").click();
+        }
+      });</script>
   </body>
 </html>
