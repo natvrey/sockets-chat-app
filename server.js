@@ -7,43 +7,41 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/index.html");
 });
 
-const EventEmitter = require("events");
-
-class MyEmitter extends EventEmitter {}
-
-const myEmitter = new MyEmitter();
-// increase the limit
-myEmitter.setMaxListeners(20);
+app.get("/styles.css", function (req, res) {
+  res.sendFile(__dirname + "/" + "styles.css");
+});
 
 users = [];
+connectedUsers = [];
 
 io.on("connection", function (socket) {
   users.push(socket.id);
   console.log("A user connected");
   console.log(users.length + " client(s) connected!");
   io.sockets.emit("broadcast", {
-    description: users.length + " clients connected!",
+    description: users.length + " client(s) connected!",
   });
 
   socket.on("disconnect", () => {
     users.pop(socket.id);
     console.log("user disconnected");
-    console.log("now only" + users.length + " client(s) connected!");
+    console.log("now only " + users.length + " client(s) connected!");
 
     io.sockets.emit("broadcast", {
-      description: "now only" + users.length + " clients connected!",
+      description: "now only " + users.length + " client(s) connected!",
     });
   });
 
   socket.on("setUsername", function (data) {
     console.log(data);
-    if (users.indexOf(data) > -1) {
+    if (connectedUsers.indexOf(data) > -1 || data.length <= 1) {
       socket.emit(
         "userExists",
-        data + " username is taken! Try some other username."
+        data +
+          " username is taken or invalid! Try another name with two or more characters."
       );
     } else {
-      // users.push(data);
+      connectedUsers.push(data);
       socket.emit("userSet", { username: data });
     }
   });

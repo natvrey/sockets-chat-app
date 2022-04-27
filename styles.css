@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans";
+  font-weight: 400;
+  margin: 0px;
+  margin: 0;
+  padding-bottom: 3rem;
+}
+
+header {
+  text-align: center;
+  background: sandybrown;
+  font-family: fantasy;
+  font-size: xxx-large;
+  border-radius: 7px;
+  color: crimson;
+}
