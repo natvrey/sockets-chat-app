@@ -26,8 +26,10 @@
           "<h1> Welcome " +
           user +
           '</h1>\<input type="text" id="message">\
-       <button type="button" name="button" onclick="sendMessage()">Send</button>\
+       <button id="msgBtn" type="button" name="button" onclick="sendMessage()">Send</button>\
        <div id="message-container"></div>';
+
+       
       });
 
       function sendMessage() {
@@ -49,6 +51,7 @@
         document.body.appendChild(para);
       });
 
+      
     </script>
     <body>
     <div id="error-container"></div>
@@ -65,12 +68,22 @@
     </button>
     <script>      
     
-    var input = document.getElementById("name");
-      input.addEventListener("keypress", function(event) {
+    var inputOne = document.getElementById("name");
+      inputOne.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
           event.preventDefault();
           document.getElementById("btn").click();
         }
-      });</script>
+      })
+
+      document.addEventListener('keypress', function(e){
+        if(e.target && e.target.id == 'message'){
+          if (e.key === "Enter") {
+          e.preventDefault();
+          document.getElementById("msgBtn").click();
+          }
+        }
+});
+      </script>
   </body>
 </html>

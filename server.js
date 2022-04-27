@@ -51,6 +51,7 @@ io.on("connection", function (socket) {
     io.sockets.emit("newmsg", data);
   });
 });
+
 http.listen(port, () => {
   console.log(`Socket.IO server running at http://localhost:${port}/`);
 });
