@@ -3,7 +3,7 @@
 }
 
 body {
-  font-family: "Helvetica";
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: 400;
   margin: 0px;
   margin: 0;
@@ -22,6 +22,8 @@ header {
 
 #name {
   margin: 16px 2px 16px 16px;
+  min-height: 40px;
+  min-width: 178px;
 }
 #btn {
   margin: 16px 2px 16px 2px;
@@ -35,9 +37,11 @@ header {
   color: black;
   margin: 16px 4px 16px 16px;
   border-radius: 4px;
-  border-color: coral;
+  border-color: deeppink;
   height: 10vh;
   width: 60vw;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
 }
 
 .msg-container {
@@ -45,10 +49,6 @@ header {
   align-content: center;
   justify-content: flex-start;
   align-items: center;
-}
-#msgBtn {
-  height: 81px;
-  width: 200px;
 }
 
 textarea {
@@ -60,4 +60,15 @@ textarea {
 .connections {
   margin: 6px 4px 4px 16px;
   color: red;
+}
+#btn,
+#msgBtn {
+  min-width: 140px;
+  min-height: 40px;
+  background-color: deeppink;
+  border-radius: 5px;
+}
+#msgBtn:hover,
+#btn:hover {
+  background-color: greenyellow;
 }

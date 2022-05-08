@@ -30,18 +30,43 @@
        <div id="message-container"></div>';
       });
 
-      function sendMessage() {
-        var msg = document.getElementById("message").value;
-        if (msg) {
-          socket.emit("msg", { message: msg, user: user });
-        }
-      }
+      // function sendMessage() {
+      //   var msg = document.getElementById("message").value;
+      //   if (msg) {
+      //     socket.emit("msg", { message: msg, user: user });
+      //   }
+      // }
       socket.on("newmsg", function (data) {
         if (user) {
           document.getElementById("message-container").innerHTML +=
             "<div class='msgs'><b>" + data.user + "</b>: " + data.message + "</div>";
         }
       });
+
+      function sendMessage() {
+        let allMsgs = [];
+        var msg = document.getElementById("message").value;
+        if (msg) {
+          // socket.emit("msg", { message: msg, user: user });
+          allMsgs.push(msg)
+        }
+
+        if (allMsgs.indexOf(msg) === 0) {
+         console.log(allMsgs)
+          socket.emit("msg", { message: msg, user: user, color: "blue" });
+          // msg.style.backgroundColor = "red";
+                                
+        }
+
+        else {
+
+          
+          socket.emit("msg", { message: msg, user: user, color: "red" });
+          // msg.style.backgroundColor = "blue";
+          }
+        }
+
+      
 
       socket.on("broadcast", function (data) {
         const para = document.createElement("p");
